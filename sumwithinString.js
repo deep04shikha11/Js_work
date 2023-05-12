@@ -1,3 +1,4 @@
+// get sum of int between string
 var s = 'f12r3id45ay deep234';
 let dgt = parseInt(s.replace(/[^0-9]/g,""));
 let sum = 0;
