@@ -1,4 +1,4 @@
-var s = 'f12r3id45ay';
+var s = 'f12r3id45ay deep234';
 let dgt = parseInt(s.replace(/[^0-9]/g,""));
 let sum = 0;
 let rev = 0;
