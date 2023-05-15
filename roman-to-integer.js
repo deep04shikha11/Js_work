@@ -1,4 +1,5 @@
 function rom_val(rom_num) {
+    console.log('rom_num='+rom_num);
     const romanVal = {
         I: 1,
         V: 5,
@@ -11,14 +12,20 @@ function rom_val(rom_num) {
 
     let ans = 0;
     for (let n = 0; n < rom_num.length; n++) {
+        console.log('n='+n);
+        console.log('rom_num[n]='+rom_num[n]);
         const curNum = romanVal[rom_num[n]];
+        console.log('curNum='+curNum);
         const nxtNum = romanVal[rom_num[n+1]];
+        console.log('nxtNum='+nxtNum);
         if (nxtNum && nxtNum >curNum) {
             ans += nxtNum - curNum;
             n++;
         } else {
             ans += curNum;
-        }        
+        }  
+        console.log('ans='+ans);
+        console.log('------------------');
     }
     return ans ;
 }
