@@ -16,6 +16,7 @@ class LRUCache {
     return -1; // If key doesn't exist in the cache
   }
 
+//   LRU logic 
   put(key, value) {
     if (this.cache[key]) {
       const node = this.cache[key].node;
