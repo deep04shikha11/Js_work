@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rating Management App</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .star-container {
+            font-size: 40px;
+        }
+
+        .star {
+            padding: 5px;
+            color: gray;
+            cursor: pointer;
+        }
+
+        .star-filled {
+            color: #ffdf00;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Star Rating Component</h1>
+        <div id="star-container" class="star-container">
+            <span class="star" data-index="1">&#9733;</span>
+            <span class="star" data-index="2">&#9733;</span>
+            <span class="star" data-index="3">&#9733;</span>
+            <span class="star" data-index="4">&#9733;</span>
+            <span class="star" data-index="5">&#9733;</span>
+        </div>
+        <h2>Rating Count:
+            <span id="count">0</span>
+        </h2>
+    </div>
+    <script>
+
+        const container = document.getElementById("star-container");
+        const star = document.querySelectorAll(".star");
+        let filled = 0;
+
+        function toggleStars(currValue) {
+            star.forEach((s, i) => {
+                s.classList.toggle("star-filled", i < currValue);
+            });
+        }
+
+        container.addEventListener("mouseover", function (e) {
+            if (e.target.classList.contains("star")) {
+                const currHovered = e.target.dataset.index;
+                toggleStars(currHovered);
+            }
+        });
+
+        container.addEventListener("click", function (e) {
+            if (e.target.classList.contains("star")) {
+                const currClicked = e.target.dataset.index;
+                toggleStars(currClicked);
+
+                document.getElementById("count").innerText = currClicked;
+                filled = currClicked;
+            }
+        });
+
+        container.addEventListener("mouseleave", function () {
+            toggleStars(filled);
+        });
+    </script>
+</body>
+
+</html>
